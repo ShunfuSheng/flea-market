@@ -1,0 +1,2 @@
+# flea-market
+一个基于python的web框架之一django开发的二手商品交易网站
