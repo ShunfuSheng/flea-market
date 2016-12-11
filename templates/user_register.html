@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}用户注册{% endblock %}
+
+{% block body %}
+
+	<div id="wrap">
+        {% if status %}
+            <div id="content">
+                <article id="post_list">
+                    <p>{{ msg }}</p>
+                </article>
+            </div>
+        {% else %}
+            <form method="post" action="/login/register" class="form">
+                <div class="form-group">
+                  <input type="text" name="name" placeholder="User Name" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="email" placeholder="Email" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="password" name="passwd" placeholder="Password" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="password" name="repasswd" placeholder="Password Again" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="password" name="phone" placeholder="Phone number" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success" >注册</button>
+            </form>
+        {% endif %}
+	</div>  <!-- wrap end -->
+
+{% endblock %}
+
+
+

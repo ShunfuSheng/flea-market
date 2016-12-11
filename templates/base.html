@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN" profile="http://gmpg.org/xfn/11">
+{% block meta %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/default/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/static/default/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/default/css/style.css" />
+    <script type="text/javascript" src="/static/default/js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/static/default/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/default/js/bin.js"></script>
+    <link rel="shortcut icon" href="/static/default/favicon.ico">
+    <meta name="keywords" content="{{ keywords }}" />
+    <meta name="description" content="{{ desc }}" />
+{% endblock %}
+<title>跳蚤市场 - {% block title %}{% endblock %}</title>
+</head>
+<body role="document">
+<!-- page head -->
+{% block head %}
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">跳蚤市场</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">跳蚤市场</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class=""><a href="/">首页</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">我的商品<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/goodsIssue/issue">商品发布</a></li>
+            <li><a href="/goodsIssue/saleHis">销售记录</a></li>
+          </ul>
+        </li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">我的购买<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/trade/goodsList">商品浏览</a></li>
+              <li><a href="/trade/buyHis">购买记录</a></li>
+          </ul>
+          </li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">交易消息<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+              <li><a href="/goodsIssue/message">消息中心</a></li>
+          </ul>
+          </li>
+      </ul>
+        {% if request.session.islogin %}
+            <form class="navbar-form navbar-right">
+            <span style="color:#fff">您好：{{ request.session.user_info.name }}</span>
+            <a class="btn btn-success" href="/login/logout">退出</a>
+            </form>
+        {% else %}
+            <form class="navbar-form navbar-right" action="/login/login" method="post">
+                <div class="form-group">
+                  <input type="text" name="email" placeholder="Email" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="password" name="passwd" placeholder="Password" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success" >登录</button>
+                <a class="btn btn-success" href="/login/register">注册</a>
+            </form>
+        {% endif %}
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+{% endblock %}
+
+<div class="container theme-showcase" role="main">
+
+    <!-- page body -->
+    {% block body %}
+        <h1>index</h1>
+        {{ now }}
+
+        <img src="/static/login/images/1.jpg">
+    {% endblock %}
+
+</div><!-- main end -->
+
+<!-- page foot -->
+{% block foot %}
+<footer id="footer" >
+    <hr>
+    <p align="middle">2016 &copy;  <a href="{{ web_url }}" >{{ web_name }}</a> Powered By Django
+	<br/>
+	Email:shengshunfu@gmail.com
+    </p>
+</footer>
+{% endblock %}
+
+</body>
+</html>

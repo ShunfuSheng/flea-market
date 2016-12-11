@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}商品详情{% endblock %}
+
+{% block body %}
+    <img src="/static/upload/{{ goods_detail.imagefile }}" style="float:left;margin-right:30px;" align="middle">
+    <p>商品名：{{ goods_detail.name }}</p>
+    <p>商品价格：￥{{ goods_detail.price }}</p>
+    <p>商品大小：{{ goods_detail.size }}</p>
+    <p>商品材质：{{ goods_detail.material }}</p>
+    <p>商品描述：{{ goods_detail.introduction }}</p>
+    <form method="post" action="/trade/goodsDetail" class="form" >
+        <input type="hidden" name="goods_id" value="{{ goods_detail.id }}">
+        <button type="submit" class="btn btn-success" >立即购买</button>
+    </form>
+
+{% endblock %}

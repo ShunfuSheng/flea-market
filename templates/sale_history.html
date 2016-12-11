@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}售卖记录{% endblock %}
+
+{% block body %}
+
+    <table style="font-size:25px;" border="1" width="800px">
+
+        <caption><center>历史销售记录</center></caption>
+        <tr style="color:blue;">
+            <td>商品ID</td>
+            <td>商品名称</td>
+            <td>购买者ID</td>
+            <td>商品价格</td>
+            <td>售出时间</td>
+        </tr>
+        {% for rt in result %}
+            <tr>
+                <td>{{ rt.goods_id }}</td>
+                <td>{{ rt.goods_name }}</td>
+                <td>{{ rt.buyer_id }}</td>
+                <td>{{ rt.goods_price }}</td>
+                <td>{{ rt.tradedate | date:'Y-m-d H:i:s' }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}发布商品{% endblock %}
+
+{% block body %}
+    <h2>发布商品：</h2>
+    {% for we in rt %}
+        <form method="post" action="/goodsIssue/issue" class="form" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{{ we.id }}">
+            <center><h2><i style="color:blue;">{{ we.id }}号闲置物品</i></h2></center>
+            <img src="/static/upload/{{ we.imagefile }}" hspace="50" vspace="50"><br />
+            <div class="form-group"><label >商品名称：</label>
+              <input type="text" name="name" value="{{ we.name }}" placeholder="goods name" class="form-control">
+            </div>
+            <div class="form-group"><label >商品大小：</label>
+              <input type="text" name="size" value="{{ we.size }}" placeholder="goods size" class="form-control">
+            </div>
+            <div class="form-group"><label >商品材质：</label>
+              <input type="text" name="material" value="{{ we.material }}" placeholder="goods material" class="form-control">
+            </div>
+            <div class="form-group"><label >商品描述：</label>
+              <input type="text" name="introduction" value="{{ we.introduction }}" placeholder="goods introduction" class="form-control">
+            </div>
+            <div class="form-group"><label >商品定价：</label>
+              <input type="text" name="price" value="{{ we.price }}" placeholder="goods price" class="form-control">
+            </div>
+            <div class="form-group"><label >商品图片上传：</label>
+              <input type="file" name="imagefile" />修改图片<br />
+            </div>
+            <button type="submit" class="btn btn-success" >保存</button>
+            <a href="/goodsIssue/delGoods?id={{ we.id }}" class="btn btn-success" style="margin-left:20px;">下架</a>
+        </form>
+    {% endfor %}
+    <br/>
+    <a class="btn btn-success" href="javascript:void(0);" onclick="$('#work_experience').show();">添加商品</a>
+    <form method="post" id="work_experience" action="/goodsIssue/issue" class="form" style="display:none;" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="">
+        <div class="form-group"><label >商品名称：</label>
+              <input type="text" name="name" value="{{ we.name }}" placeholder="goods name" class="form-control">
+            </div>
+            <div class="form-group"><label >商品大小：</label>
+              <input type="text" name="size" value="{{ we.size }}" placeholder="goods size" class="form-control">
+            </div>
+            <div class="form-group"><label >商品材质：</label>
+              <input type="text" name="material" value="{{ we.material }}" placeholder="goods material" class="form-control">
+            </div>
+            <div class="form-group"><label >商品描述：</label>
+              <input type="text" name="introduction" value="{{ we.introduction }}" placeholder="goods introduction" class="form-control">
+            </div>
+            <div class="form-group"><label >商品定价：</label>
+              <input type="text" name="price" value="{{ we.price }}" placeholder="goods price" class="form-control">
+            </div>
+            <div class="form-group"><label >商品图片上传：</label>
+              <input type="file" name="imagefile" />选择图片<br />
+            </div>
+            <button type="submit" class="btn btn-success" >保存</button>
+    </form>
+{% endblock %}

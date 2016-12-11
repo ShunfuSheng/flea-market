@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}商品浏览{% endblock %}
+
+{% block body %}
+    <style>
+        div.pos_bottom{
+            position:relative;
+            top:10px;
+        }
+    </style>
+    <center><h2 style="color:blue;">商品列表</h2></center>
+    {% for gi in goods_info %}
+        <div style="border-style:inset;float:left;height:340px;width:208px;margin-right:20px;margin-bottom:30px;">
+            <img src="/static/upload/{{ gi.imagefile }}" style="margin-top:0px;">
+            <div class="pos_bottom">
+                <center><b style="font-size:20px;">{{ gi.name }}</b></center>
+                <center>￥{{ gi.price }}</center>
+                <i style="margin-left:25px">{{ gi.introduction }}</i>
+                <p style="border-top-style:double"><center><a href="/trade/goodsDetail?id={{ gi.id }}">查看详情</a></center></p>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

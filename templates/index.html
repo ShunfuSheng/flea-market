@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}首页{% endblock %}
+
+{% block body %}
+     <div class="jumbotron">
+        <h1>python web 闲置物品交易 --夜听雨</h1><br />
+        <span style="margin-left:38px;font-size:23px">
+            满目红落，香寄千里！瞬间爱恨，醒梦红尘！怎奈：一川云水，一朵彼岸，流年于指尖散落；一影愫念，一场风花，
+            浅吟低唱成悲曲。忍回首？万缕千丝，已碎成一枕残梦......
+        </span>
+     </div>
+
+    <form class="form-inline" action="/search" method="post">
+      <div class="form-group">
+        <label for="issueSearcher">商品搜索：</label>
+        <input type="text" class="form-control" name="keywords" id="issueSearcher" placeholder="如：四阶魔方">
+      </div>
+      <button type="submit" class="btn btn-default">搜索</button>
+    </form><hr />
+
+    <div style="height:300px" id="wrap">
+		<!--<div id="content">-->
+            <!--<article id="user"><h1>Users</h1>-->
+            <!--{% for i in users %}-->
+                <!--<p> {{ i.id }} => {{ i.name }} => {{ i.email }} </p>-->
+            <!--{% endfor %}-->
+            <!--</article><hr />-->
+            <!--<article id="goods"><h1>Goodses</h1>-->
+            <!--{% for i in goodses %}-->
+                <!--<p>{{ i.id }} => {{ i.owner_id }} => {{ i.name }} => {{ i.introduction }}</p>-->
+            <!--{% endfor %}-->
+            <!--</article><hr />-->
+            <!--<article id="issuer"><h1>Issuers</h1>-->
+            <!--{% for i in issuers %}-->
+                <!--<p> {{ i.id }} => {{ i.uid }} => {{ i.goods_id }} </p>-->
+            <!--{% endfor %}-->
+            <!--</article><hr />-->
+            <!--<article id="saler"><h1>Salers</h1>-->
+            <!--{% for i in salers %}-->
+                <!--<p>{{ i.id }} => {{ i.buyer_id }} => {{ i.goods_id }}</p>-->
+            <!--{% endfor %}-->
+            <!--</article><hr />-->
+        <!--</div>-->
+    </div>
+{% endblock %}
